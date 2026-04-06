@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started | The LLC Factory</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .form-container {
+            max-width: 650px;
+            margin: 6rem auto;
+            padding: 3.5rem;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border-radius: 24px;
+        }
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 1.1rem;
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            outline: none;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        input:focus, select:focus {
+            border-color: var(--primary);
+            background: rgba(30, 41, 59, 1);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+        }
+        option {
+            background-color: #1e293b;
+            color: white;
+            padding: 15px;
+        }
+        input::placeholder {
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="mesh-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <nav style="padding: 2rem 0;">
+        <div class="container nav-content">
+            <a href="index.html" class="logo" style="text-decoration: none;">THE LLC FACTORY</a>
+            <a href="index.html" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem; border-color: rgba(255,255,255,0.2); display: flex; align-items: center; gap: 0.5rem;">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="glass form-container">
+            <h2 style="margin-bottom: 1rem; font-size: 2rem;">Start Your Application</h2>
+            <p style="color: #94a3b8; margin-bottom: 2rem;">Fill out the details below and we'll redirect you to our expert on WhatsApp.</p>
+            
+            <form id="onboardingForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" required placeholder="John Doe">
+                </div>
+                
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" id="country" required placeholder="United Arab Emirates">
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Select Service</label>
+                    <select id="service" required>
+                        <option value="" disabled selected>Choose a service</option>
+                        <option value="USA LLC">USA LLC Formation</option>
+                        <option value="EIN">EIN Number Only</option>
+                        <option value="ITIN">ITIN Processing</option>
+                        <option value="UK LTD">UK LTD Registration</option>
+                    </select>
+                </div>
+                
+                <div id="stateGroup" class="form-group" style="display: none;">
+                    <label for="state">Select State</label>
+                    <select id="state">
+                        <option value="Wyoming">Wyoming (Recommended)</option>
+                        <option value="Delaware">Delaware</option>
+                        <option value="New Mexico">New Mexico</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="timeline">Timeline</label>
+                    <select id="timeline" required>
+                        <option value="Normal">Normal (standard processing)</option>
+                        <option value="Urgent">Urgent (expedited)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp Number</label>
+                    <input type="tel" id="whatsapp" required placeholder="+1 234 567 8900">
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-glow" style="width: 100%; padding: 1rem; font-size: 1.1rem; margin-top: 1rem;">
+                    Submit & Chat on WhatsApp <i class="fab fa-whatsapp"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const serviceSelect = document.getElementById('service');
+        const stateGroup = document.getElementById('stateGroup');
+
+        serviceSelect.addEventListener('change', (e) => {
+            if (e.target.value === 'USA LLC') {
+                stateGroup.style.display = 'block';
+            } else {
+                stateGroup.style.display = 'none';
+            }
+        });
+
+        document.getElementById('onboardingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('fullName').value;
+            const country = document.getElementById('country').value;
+            const service = document.getElementById('service').value;
+            const state = document.getElementById('state').value;
+            const timeline = document.getElementById('timeline').value;
+            const whatsappNum = document.getElementById('whatsapp').value;
+            
+            let message = `Hello The LLC Factory! I want to start my application.%0A%0A`;
+            message += `*Name:* ${name}%0A`;
+            message += `*Country:* ${country}%0A`;
+            message += `*Service:* ${service}%0A`;
+            if (service === 'USA LLC') message += `*State:* ${state}%0A`;
+            message += `*Timeline:* ${timeline}%0A`;
+            message += `*WhatsApp:* ${whatsappNum}`;
+            
+            const whatsappUrl = `https://wa.me/923360719256?text=${message}`;
+            window.location.href = whatsappUrl;
+        });
+    </script>
+</body>
+</html>
