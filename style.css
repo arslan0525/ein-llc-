@@ -210,6 +210,7 @@ nav {
   background: var(--gradient-main);
   background-size: 200% 200%;
   animation: gradientMove 15s ease infinite;
+  padding-top: 100px; /* Offset for sticky header */
 }
 
 .hero::before {
@@ -575,6 +576,33 @@ a.service-card {
 .whatsapp-float:hover {
   transform: scale(1.15) translateY(-5px);
   box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+}
+
+/* Service Card Document Backgrounds */
+.service-card.doc-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card.doc-bg::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background-image: var(--doc-img);
+  background-size: cover;
+  background-position: center top;
+  filter: blur(2px) brightness(0.45) grayscale(0.2);
+  z-index: 0;
+  transition: var(--transition);
+}
+
+.service-card.doc-bg:hover::before {
+  filter: blur(1.5px) brightness(0.55) grayscale(0);
+}
+
+.service-card.doc-bg > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Popular State Cards */
