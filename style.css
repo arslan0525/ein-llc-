@@ -880,6 +880,376 @@ a.service-card {
   color: var(--light);
 }
 
+/* Wyoming LLC Package Section */
+.wyoming-package-wrapper {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+
+.wyoming-img-side {
+  flex: 1;
+  position: relative;
+}
+
+.wyoming-pkg-img {
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 30px rgba(99, 102, 241, 0.15);
+  transition: var(--transition);
+}
+
+.wyoming-pkg-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 35px 70px rgba(0,0,0,0.6), 0 0 40px rgba(34, 211, 238, 0.2);
+}
+
+.wyoming-price-tag {
+  position: absolute;
+  bottom: -25px;
+  right: -15px;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  border: 2px solid var(--accent);
+  background: rgba(2, 6, 23, 0.9) !important;
+  backdrop-filter: blur(20px);
+}
+
+.price-label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.price-amount {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  font-family: 'Outfit', sans-serif;
+}
+
+.price-note {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.wyoming-details-side {
+  flex: 1.2;
+}
+
+.package-includes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.pkg-item {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1rem;
+  border-radius: 12px;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.pkg-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--glass-border);
+  transform: translateX(5px);
+}
+
+.pkg-icon {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 1.3rem;
+}
+
+.pkg-item h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  color: #fff;
+}
+
+.pkg-item p {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+.pkg-cta-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Roadmap Section */
+.roadmap-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.roadmap-step {
+  flex: 1;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  position: relative;
+  transition: var(--transition);
+}
+
+.roadmap-step:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px rgba(34, 211, 238, 0.15);
+}
+
+.step-number {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--darker);
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 1.5rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  z-index: 2;
+}
+
+.step-icon {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin: 1.5rem 0 1rem;
+}
+
+.roadmap-step h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.roadmap-step p {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.roadmap-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  font-size: 1.5rem;
+  padding-top: 4rem;
+}
+
+/* Pricing Section */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.pricing-card {
+  padding: 3rem 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(34, 211, 238, 0.2);
+  color: var(--accent);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  border: 1px solid var(--accent);
+}
+
+.pricing-state {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.pricing-breakdown {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.price-val {
+  font-weight: 700;
+  color: #fff;
+}
+
+.pricing-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.total-val {
+  color: var(--accent);
+}
+
+/* Privacy Section */
+.privacy-banner {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 4rem;
+  border-color: rgba(34, 211, 238, 0.2);
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.05), rgba(15, 23, 42, 0.5));
+}
+
+.privacy-icon-wrap {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(34, 211, 238, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed rgba(34, 211, 238, 0.3);
+}
+
+.privacy-icon {
+  font-size: 4rem;
+  color: var(--accent);
+}
+
+.privacy-content {
+  flex-grow: 1;
+}
+
+.privacy-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.privacy-content p {
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.privacy-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.privacy-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1rem;
+  color: #e2e8f0;
+}
+
+.privacy-list i {
+  color: #22d3ee;
+  font-size: 1.1rem;
+}
+
+.privacy-cta {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Compliance Section */
+.compliance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.compliance-card {
+  padding: 2.5rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.compliance-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.compliance-icon {
+  font-size: 2.5rem;
+  color: var(--secondary);
+  margin-bottom: 1.5rem;
+}
+
+.compliance-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.compliance-card p {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
 @media (max-width: 992px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
@@ -940,5 +1310,18 @@ a.service-card {
   .pre-footer-cta { padding: 3rem 1.5rem; }
   .pre-footer-cta h2 { font-size: 2.2rem; }
   .cta-actions { flex-direction: column; width: 100%; }
+  .roadmap-grid { flex-direction: column; align-items: center; }
+  .roadmap-connector { transform: rotate(90deg); }
+  .privacy-banner { flex-direction: column; text-align: center; }
+  .privacy-list li { justify-content: center; }
+  .privacy-cta { align-items: center; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .compliance-grid { grid-template-columns: 1fr; }
+  .wyoming-package-wrapper { flex-direction: column; gap: 3rem; }
+  .wyoming-img-side { width: 100%; }
+  .wyoming-price-tag { right: 10px; bottom: -20px; padding: 1rem 1.5rem; }
+  .price-amount { font-size: 2.2rem; }
+  .pkg-cta-row { flex-direction: column; width: 100%; }
+  .pkg-cta-row .btn { width: 100%; }
 }
 
