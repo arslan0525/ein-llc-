@@ -42,28 +42,28 @@
     </div>
 
     <nav id="navbar">
-        <div class="contact-bar" style="background: rgba(99, 102, 241, 0.1); padding: 0.5rem 0; font-size: 0.85rem; border-bottom: 1px solid var(--glass-border);">
-            <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-                <div style="display: flex; gap: 1.5rem;">
-                    <span><i class="fab fa-whatsapp" style="color: #25d366;"></i> +92 336 0719256</span>
-                    <span><i class="fas fa-phone" style="color: var(--accent);"></i> +92 336 0719256</span>
+        <div class="contact-bar">
+            <div class="container nav-contacts">
+                <div class="contact-item">
+                    <a href="https://wa.me/923360719256" target="_blank"><i class="fab fa-whatsapp"></i> +92 336 0719256</a>
+                    <a href="tel:+923360719256"><i class="fas fa-phone"></i> +92 336 0719256</a>
                 </div>
-                <div style="display: flex; gap: 1rem;">
-                    <a href="mailto:thellcfactory@gmail.com" style="color: inherit; text-decoration: none;"><span><i class="far fa-envelope"></i> thellcfactory@gmail.com</span></a>
+                <div class="contact-item">
+                    <a href="mailto:thellcfactory@gmail.com"><i class="far fa-envelope"></i> thellcfactory@gmail.com</a>
                 </div>
             </div>
         </div>
-        <div class="container nav-content">
-            <div class="logo">THE LLC FACTORY</div>
-            <button class="hamburger" id="hamburger" aria-label="Open menu">
-                <span></span><span></span><span></span>
-            </button>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">THE LLC <span>FACTORY</span></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#map">US States</a></li>
                 <li><a href="#faq">FAQ</a></li>
-                <li><a href="get-started.html" class="btn btn-primary btn-glow" style="padding: 0.6rem 1.2rem;">Get Started</a></li>
+                <li><a href="get-started.html" class="btn btn-primary btn-nav-cta">Get Started</a></li>
             </ul>
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
@@ -301,16 +301,65 @@
         </div>
     </section>
 
-    <footer style="padding: 4rem 0; border-top: 1px solid var(--glass-border); margin-top: 4rem;">
-        <div class="container" style="text-align: center;">
-            <div class="logo" style="margin-bottom: 1.5rem;">THE LLC FACTORY</div>
-            <p style="color: #94a3b8; margin-bottom: 2rem;">Simplifying global business formation since 2020.</p>
-            <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem;">
-                <a href="#" style="color: #94a3b8; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
-                <a href="#" style="color: #94a3b8; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
-                <a href="#" style="color: #94a3b8; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+    <section id="pre-footer">
+        <div class="container">
+            <div class="glass pre-footer-cta">
+                <h2>Ready to Start Your Business Journey?</h2>
+                <p>Join thousands of entrepreneurs who trust **The LLC Factory** for their US & UK company needs.</p>
+                <div class="cta-actions">
+                    <a href="get-started.html" class="btn btn-primary btn-glow">Start Application Now</a>
+                    <a href="https://wa.me/923360719256" class="btn btn-outline" target="_blank">Chat with Expert</a>
+                </div>
             </div>
-            <p style="font-size: 0.8rem; opacity: 0.5;">&copy; 2026 The LLC Factory. All rights reserved.</p>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="logo">THE LLC <span>FACTORY</span></div>
+                <p>Empowering global entrepreneurs with full-service LLC & LTD formation since 2020. Your trusted partner in global business growth.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="get-started.html?service=USA+LLC">USA LLC Formation</a></li>
+                    <li><a href="get-started.html?service=EIN">EIN Number Processing</a></li>
+                    <li><a href="get-started.html?service=ITIN">ITIN Processing Services</a></li>
+                    <li><a href="get-started.html?service=UK+LTD">UK LTD Registration</a></li>
+                    <li><a href="get-started.html?service=Business+Address">Virtual Address Setup</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Menu</h4>
+                <ul>
+                    <li><a href="#map">Most Popular States</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                    <li><a href="#testimonials">Client Success Stories</a></li>
+                    <li><a href="get-started.html">Start Your Journey</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Talk to Us</h4>
+                <p><i class="fab fa-whatsapp"></i> +92 336 0719256</p>
+                <p><i class="far fa-envelope"></i> thellcfactory@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Serving Clients Worldwide</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 The LLC Factory. All rights reserved. Registered In UK/USA Support Partners.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
         </div>
     </footer>
 
