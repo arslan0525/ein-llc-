@@ -1214,7 +1214,18 @@ a.service-card {
   .privacy-banner { flex-direction: column; text-align: center; }
   .privacy-list li { justify-content: center; }
   .privacy-cta { align-items: center; }
-  .packages-grid { grid-template-columns: 1fr; }
+  .packages-grid { grid-template-columns: 1fr; gap: 2rem; }
   .package-card.featured { transform: scale(1); }
+  .package-price { font-size: 2.2rem; }
+  .package-state { font-size: 1.2rem; }
+  .package-list { padding: 1.5rem; }
+  .package-list li { margin-bottom: 0.8rem; font-size: 0.9rem; }
+  .package-img { height: 160px; }
+}
+
+@media (max-width: 480px) {
+  .package-price { font-size: 2rem; }
+  .hero h1 { font-size: 1.8rem; }
+  .navbar .logo { font-size: 1.2rem; }
 }
 
