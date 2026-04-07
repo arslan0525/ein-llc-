@@ -477,28 +477,54 @@ a.service-card {
   fill: var(--accent);
 }
 
-/* WhatsApp Floating */
+/* Interactive Elements Polish */
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  cursor: pointer;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.nav-links a {
+  padding: 0.5rem; /* Better tap target */
+  color: var(--light);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
 .whatsapp-float {
   position: fixed;
   bottom: 30px;
   right: 30px;
   background: #25d366;
   color: white;
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  font-size: 32px;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
   z-index: 1000;
   text-decoration: none;
-  transition: transform 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .whatsapp-float:hover {
-  transform: scale(1.1);
+  transform: scale(1.15) translateY(-5px);
+  box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
 }
 
 /* Popular State Cards */
