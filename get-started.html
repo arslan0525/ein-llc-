@@ -72,7 +72,8 @@
     <div class="container">
         <div class="glass form-container">
             <h2 style="margin-bottom: 1rem; font-size: 2rem;">Start Your Application</h2>
-            <p style="color: #94a3b8; margin-bottom: 2rem;">Fill out the details below and we'll redirect you to our expert on WhatsApp.</p>
+            <p style="color: #94a3b8; margin-bottom: 0.5rem;">Fill out the details below and we'll redirect you to our expert on WhatsApp.</p>
+            <p style="color: #64748b; font-size: 0.85rem; margin-bottom: 2rem;">📧 <a href="mailto:thellcfactory@gmail.com" style="color: var(--accent); text-decoration: none;">thellcfactory@gmail.com</a></p>
             
             <form id="onboardingForm">
                 <div class="form-group">
@@ -141,23 +142,36 @@
         document.getElementById('onboardingForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const name = document.getElementById('fullName').value;
-            const country = document.getElementById('country').value;
+            const name = document.getElementById('fullName').value.trim();
+            const country = document.getElementById('country').value.trim();
             const service = document.getElementById('service').value;
-            const state = document.getElementById('state').value;
             const timeline = document.getElementById('timeline').value;
-            const whatsappNum = document.getElementById('whatsapp').value;
+            const whatsappNum = document.getElementById('whatsapp').value.trim();
+
+            // Validation
+            if (!service) {
+                alert('Please select a service.');
+                return;
+            }
+            if (!name || !country || !whatsappNum) {
+                alert('Please fill in all required fields.');
+                return;
+            }
             
-            let message = `Hello The LLC Factory! I want to start my application.%0A%0A`;
-            message += `*Name:* ${name}%0A`;
+            let message = `Hello The LLC Factory!%0A%0AI would like to start my application:%0A%0A`;
+            message += `*Full Name:* ${name}%0A`;
             message += `*Country:* ${country}%0A`;
             message += `*Service:* ${service}%0A`;
-            if (service === 'USA LLC') message += `*State:* ${state}%0A`;
+            if (service === 'USA LLC') {
+                const state = document.getElementById('state').value;
+                message += `*State:* ${state}%0A`;
+            }
             message += `*Timeline:* ${timeline}%0A`;
-            message += `*WhatsApp:* ${whatsappNum}`;
+            message += `*WhatsApp:* ${whatsappNum}%0A%0A`;
+            message += `Email: thellcfactory@gmail.com`;
             
             const whatsappUrl = `https://wa.me/923360719256?text=${message}`;
-            window.location.href = whatsappUrl;
+            window.open(whatsappUrl, '_blank');
         });
     </script>
 </body>
