@@ -94,6 +94,8 @@
                         <option value="EIN">EIN Number Only</option>
                         <option value="ITIN">ITIN Processing</option>
                         <option value="UK LTD">UK LTD Registration</option>
+                        <option value="Business Address">Business Address</option>
+                        <option value="Bank Setup">Bank Setup</option>
                     </select>
                 </div>
                 
@@ -120,9 +122,14 @@
                     <input type="tel" id="whatsapp" required placeholder="+1 234 567 8900">
                 </div>
                 
-                <button type="submit" class="btn btn-primary btn-glow" style="width: 100%; padding: 1rem; font-size: 1.1rem; margin-top: 1rem;">
-                    Submit & Chat on WhatsApp <i class="fab fa-whatsapp"></i>
-                </button>
+                <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+                    <button type="button" id="btnWhatsapp" class="btn btn-primary btn-glow" style="width: 100%; padding: 1rem; font-size: 1.1rem; background: #25d366; box-shadow: 0 4px 14px 0 rgba(37, 211, 102, 0.4);">
+                        Submit & Chat on WhatsApp <i class="fab fa-whatsapp"></i>
+                    </button>
+                    <button type="button" id="btnEmail" class="btn btn-primary btn-glow" style="width: 100%; padding: 1rem; font-size: 1.1rem; background: #ea4335; box-shadow: 0 4px 14px 0 rgba(234, 67, 53, 0.4);">
+                        Submit via Email (Gmail) <i class="fas fa-envelope"></i>
+                    </button>
+                </div>
             </form>
         </div>
     </div>
@@ -130,6 +137,7 @@
     <script>
         const serviceSelect = document.getElementById('service');
         const stateGroup = document.getElementById('stateGroup');
+        const form = document.getElementById('onboardingForm');
 
         serviceSelect.addEventListener('change', (e) => {
             if (e.target.value === 'USA LLC') {
@@ -139,39 +147,87 @@
             }
         });
 
-        document.getElementById('onboardingForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
+        // Pre-fill from URL parameter
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const serviceParam = urlParams.get('service');
+            if (serviceParam) {
+                const options = Array.from(serviceSelect.options);
+                const match = options.find(opt => opt.value === serviceParam);
+                if (match) {
+                    serviceSelect.value = serviceParam;
+                    serviceSelect.dispatchEvent(new Event('change'));
+                    
+                    const stateParam = urlParams.get('state');
+                    if (stateParam && serviceParam === 'USA LLC') {
+                        const stateSelect = document.getElementById('state');
+                        const stateOptions = Array.from(stateSelect.options);
+                        const stateMatch = stateOptions.find(opt => opt.value === stateParam);
+                        if (stateMatch) {
+                            stateSelect.value = stateParam;
+                        }
+                    }
+                }
+            }
+        });
+
+        function getFormData() {
             const name = document.getElementById('fullName').value.trim();
             const country = document.getElementById('country').value.trim();
-            const service = document.getElementById('service').value;
+            const service = serviceSelect.value;
             const timeline = document.getElementById('timeline').value;
             const whatsappNum = document.getElementById('whatsapp').value.trim();
+            let state = '';
+            if (service === 'USA LLC') {
+                state = document.getElementById('state').value;
+            }
+            return {name, country, service, timeline, whatsappNum, state};
+        }
 
-            // Validation
-            if (!service) {
+        function validateForm() {
+            if (!form.reportValidity()) return false;
+            if (!serviceSelect.value) {
                 alert('Please select a service.');
-                return;
+                return false;
             }
-            if (!name || !country || !whatsappNum) {
-                alert('Please fill in all required fields.');
-                return;
-            }
+            return true;
+        }
+
+        document.getElementById('btnWhatsapp').addEventListener('click', () => {
+            if (!validateForm()) return;
+            const data = getFormData();
             
             let message = `Hello The LLC Factory!%0A%0AI would like to start my application:%0A%0A`;
-            message += `*Full Name:* ${name}%0A`;
-            message += `*Country:* ${country}%0A`;
-            message += `*Service:* ${service}%0A`;
-            if (service === 'USA LLC') {
-                const state = document.getElementById('state').value;
-                message += `*State:* ${state}%0A`;
+            message += `*Full Name:* ${data.name}%0A`;
+            message += `*Country:* ${data.country}%0A`;
+            message += `*Service:* ${data.service}%0A`;
+            if (data.service === 'USA LLC') {
+                message += `*State:* ${data.state}%0A`;
             }
-            message += `*Timeline:* ${timeline}%0A`;
-            message += `*WhatsApp:* ${whatsappNum}%0A%0A`;
-            message += `Email: thellcfactory@gmail.com`;
+            message += `*Timeline:* ${data.timeline}%0A`;
+            message += `*WhatsApp:* ${data.whatsappNum}%0A%0A`;
             
             const whatsappUrl = `https://wa.me/923360719256?text=${message}`;
             window.open(whatsappUrl, '_blank');
+        });
+
+        document.getElementById('btnEmail').addEventListener('click', () => {
+            if (!validateForm()) return;
+            const data = getFormData();
+            
+            const subject = encodeURIComponent(`New Application: ${data.service} - ${data.name}`);
+            let body = `Hello The LLC Factory,\n\nI would like to start my application:\n\n`;
+            body += `Full Name: ${data.name}\n`;
+            body += `Country: ${data.country}\n`;
+            body += `Service: ${data.service}\n`;
+            if (data.service === 'USA LLC') {
+                body += `State: ${data.state}\n`;
+            }
+            body += `Timeline: ${data.timeline}\n`;
+            body += `WhatsApp Number: ${data.whatsappNum}\n`;
+            
+            const emailUrl = `mailto:thellcfactory@gmail.com?subject=${subject}&body=${encodeURIComponent(body)}`;
+            window.location.href = emailUrl;
         });
     </script>
 </body>
